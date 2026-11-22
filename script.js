@@ -639,11 +639,21 @@
     let cameraZ = camera.position.z;
     const dragHintEl = document.getElementById('gl-drag-hint');
 
+    let hasAutoStartedMusic = false;
+    function tryAutoStartMusicOnFirstTouch() {
+      if (hasAutoStartedMusic) return;
+      hasAutoStartedMusic = true;
+      if (audioEl && audioEl.paused) {
+        seekAndPlay(137);
+      }
+    }
+
     mount.addEventListener('pointerdown', (e) => {
       isDragging = true;
       prevX = e.clientX;
       prevY = e.clientY;
       if (dragHintEl) dragHintEl.classList.add('is-faded');
+      tryAutoStartMusicOnFirstTouch();
     });
 
     window.addEventListener('pointermove', (e) => {
