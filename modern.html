@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-sky-mood="sunset">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta name="theme-color" content="#05040d" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="إلى مريم من سيف | عالمنا وحالة حب" />
+  <meta property="og:description" content="بين النجوم ثلاثية الأبعاد، ولحظة اعترافنا بالحب (21/11 2:55)، وحالة حب إليسا، وإلّا عيونك إنتَ.. عالم صُنع بكل الحب لعيون مريم من سيف." />
+  <meta property="og:image" content="https://saiffouad010.github.io/mariam/assets/vinyl-cover.jpg" />
+  <title>إلى مريم من سيف | عالمنا وحالة حب</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;700;800&family=Courier+Prime:wght@400;700&family=Tajawal:wght@400;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css?v=20261122modern" />
+</head>
+<body>
+  <!-- Living Cosmic Sky & Clouds Canvas Layer -->
+  <div class="sky-stage" aria-hidden="true">
+    <canvas id="sky-canvas"></canvas>
+  </div>
+
+  <!-- Falling Rose Petals Canvas Layer -->
+  <canvas id="petals-canvas" aria-hidden="true"></canvas>
+
+  <!-- Sticky Modern Glass Header -->
+  <header class="top-chronicle-bar">
+    <div class="top-bar-inner">
+      <a href="#universe-3d" class="brand-crest">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg>
+        <span>سيف ومريم</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="أقسام الموقع">
+        <ul class="nav-chapters">
+          <li><a href="#universe-3d">عالمنا 3D</a></li>
+          <li><a href="#secret-vault">الرسالة السرية</a></li>
+          <li><a href="#seret-el-hob">إلّا عيونك إنتَ</a></li>
+          <li><a href="#our-book">كتابنا</a></li>
+          <li><a href="#cafe-table">القهوة والرسائل</a></li>
+          <li><a href="#rose-herbarium">الورد</a></li>
+          <li><a href="#eternal-vow">عهد الحب</a></li>
+        </ul>
+      </nav>
+
+      <div class="bar-controls">
+        <button type="button" class="mini-audio-btn" id="header-audio-toggle">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+          <span id="header-audio-label">تشغيل «إلّا عيونك إنتَ»</span>
+        </button>
+        <a href="#secret-vault" class="sky-pill-btn">
+          <span>قفل السر</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Thumb-Friendly Bottom Navigation Dock -->
+  <nav class="mobile-thumb-dock" aria-label="التنقل السريع للهاتف">
+    <a href="#universe-3d" class="dock-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <polygon points="12 2 15 9 22 9.5 17 14.5 18.5 21.5 12 17.8 5.5 21.5 7 14.5 2 9.5 9 9" />
+      </svg>
+      <span>عالم 3D</span>
+    </a>
+    <a href="#secret-vault" class="dock-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <rect x="5" y="11" width="14" height="10" rx="2" />
+        <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+      </svg>
+      <span>السر</span>
+    </a>
+    <a href="#seret-el-hob" class="dock-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <circle cx="12" cy="12" r="9" />
+        <circle cx="12" cy="12" r="2.5" />
+      </svg>
+      <span>الأغاني</span>
+    </a>
+    <a href="#our-book" class="dock-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+      </svg>
+      <span>الكتاب</span>
+    </a>
+    <a href="#cafe-table" class="dock-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <path d="M17 8h1a4 4 0 1 1 0 8h-1" />
+        <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z" />
+      </svg>
+      <span>القهوة</span>
+    </a>
+    <a href="#rose-herbarium" class="dock-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <path d="M12 3c3 3.5 4.5 7.5 0 12-4.5-4.5-3-8.5 0-12z" />
+        <path d="M12 15v6" />
+      </svg>
+      <span>الورد</span>
+    </a>
+  </nav>
+
+  <main class="manuscript-shell">
+    <!-- Scene 0: Immediate Full-Stage Interactive 3D Particle Morphing Universe (hi.zico.info Style) -->
+    <section class="particle-universe-section" id="universe-3d" aria-label="عالم مريم وسيف ثلاثي الأبعاد">
+      <div class="particle-stage-card" id="particle-stage-card">
+        <div class="gl-canvas-mount" id="gl-mount"></div>
+        <div class="gl-vignette" aria-hidden="true"></div>
+
+        <div class="gl-top-bar">
+          <div class="gl-top-right">
+            <button type="button" class="gl-icon-btn" id="gl-music-btn" aria-pressed="false" aria-label="تشغيل أو إيقاف الأغنية" title="تشغيل الموسيقى">
+              <span>♪</span>
+            </button>
+            <button type="button" class="gl-pill-btn" id="gl-auto-btn" aria-pressed="true">
+              <span>تحول تلقائي ✦</span>
+            </button>
+          </div>
+
+          <div class="gl-top-left">
+            <button type="button" class="gl-pill-btn" id="gl-fullscreen-btn" aria-pressed="false">
+              <span id="gl-fullscreen-label">ملء الشاشة ⛶</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="gl-bottom-hud">
+          <p class="gl-drag-hint" id="gl-drag-hint">اسحبي بإصبعكِ لتدوير المجسم ٣٦٠° • المسي ♪ لتشغيل الموسيقى</p>
+
+          <div class="gl-morph-navigator">
+            <button type="button" class="gl-nav-circle" id="gl-prev-shape" aria-label="المجسم السابق">‹</button>
+
+            <div class="gl-title-block">
+              <h2 class="gl-shape-name is-animating" id="gl-shape-name">وردة مريم البلدية</h2>
+              <p class="gl-shape-poem" id="gl-shape-poem">كل ذرة ضوء تتجمع لتصنع وردةً لا تذبل لعيونكِ يا مريم</p>
+            </div>
+
+            <button type="button" class="gl-nav-circle" id="gl-next-shape" aria-label="المجسم التالي">›</button>
+          </div>
+
+          <div class="gl-dots-bar" id="gl-dots-bar" role="tablist" aria-label="أشكال النجوم ثلاثية الأبعاد"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scene 1: Secret Passcode Vault (21/11 2:55 — Elissa "حالة حب") -->
+    <section class="story-section" id="secret-vault">
+      <div class="secret-vault-card">
+        <!-- Locked State -->
+        <div class="vault-locked-view" id="vault-locked-view">
+          <div class="vault-lock-badge" aria-hidden="true">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="5" y="11" width="14" height="10" rx="2" />
+              <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+            </svg>
+          </div>
+
+          <h2 class="vault-title">الرسالة السرية المقفولة لعيون مريم</h2>
+          <p style="color:var(--text-secondary);font-size:1.05rem;">
+            هذه المساحة مقفولة بكلمة سر خاصة جداً بين سيف ومريم. اكتبي التاريخ والساعة لفتح المفاجأة وتشغيل الأغنية السرية:
+          </p>
+
+          <div class="vault-hint-pill">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 16v-4" />
+              <path d="M12 8h.01" />
+            </svg>
+            <span>التلميح: لما اعترفت بحبي ليكي (التاريخ والساعة)</span>
+          </div>
+
+          <form class="vault-pass-form" id="vault-pass-form">
+            <input
+              type="text"
+              id="vault-pass-input"
+              class="vault-pass-input tabular-nums"
+              placeholder="21/11 2:55"
+              autocomplete="off"
+              aria-label="كلمة سر الظرف السري"
+            />
+            <button type="submit" class="btn-primary-rose">
+              <span>افتحي القفل</span>
+            </button>
+          </form>
+
+          <p class="vault-error-msg" id="vault-error-msg" role="status" aria-live="polite"></p>
+        </div>
+
+        <!-- Unlocked State (Revealed when Mariam enters 21/11 2:55) -->
+        <div class="vault-unlocked-view" id="vault-unlocked-view">
+          <div class="unlocked-grid">
+            <!-- Right Column: Moment Counter & Elissa Player -->
+            <div class="elissa-player-box">
+              <div>
+                <div class="confession-timestamp-banner">
+                  <span class="confession-date-pill tabular-nums">21/11 • 2:55</span>
+                  <span style="color:var(--accent-pink);font-weight:700;">لحظة اعترافي بحبي ليكي ♥</span>
+                </div>
+
+                <h3 style="font-size:1.55rem;font-weight:800;margin-bottom:0.4rem;">عايشة حالة حب معاك واخداني</h3>
+                <p style="color:var(--text-secondary);font-size:1.04rem;line-height:1.8;">
+                  من يوم <strong>21/11 الساعة 2:55</strong> بالظبط، لما اعترفتلك بحبي يا مريم، وكل ثانية بتعدي عليا وأنا بحبك أكتر، وعايش معاكي أجمل حالة حب في عمري.
+                </p>
+
+                <!-- Live Love Timer since 21/11 2:55 -->
+                <div class="live-love-counter tabular-nums" aria-label="عداد الوقت منذ اعترافنا بالحب">
+                  <div class="counter-unit">
+                    <span class="counter-num" id="love-days">0</span>
+                    <span class="counter-label">يوم</span>
+                  </div>
+                  <div class="counter-unit">
+                    <span class="counter-num" id="love-hours">0</span>
+                    <span class="counter-label">ساعة</span>
+                  </div>
+                  <div class="counter-unit">
+                    <span class="counter-num" id="love-mins">0</span>
+                    <span class="counter-label">دقيقة</span>
+                  </div>
+                  <div class="counter-unit">
+                    <span class="counter-num" id="love-secs">0</span>
+                    <span class="counter-label">ثانية</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="elissa-track-header">
+                  <div class="elissa-disc-icon" id="elissa-disc-icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="#f6f3ff">
+                      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div style="font-weight:800;font-size:1.18rem;color:var(--text-primary);">حالة حب • إليسا</div>
+                    <div style="font-size:0.9rem;color:var(--accent-pink);">إهداء خاص من سيف إلى مريم (21/11 2:55)</div>
+                  </div>
+                </div>
+
+                <div class="audio-timeline-bar">
+                  <button type="button" class="btn-primary-rose" id="elissa-play-btn" style="padding:0.55rem 1.2rem;font-size:0.98rem;">
+                    <span id="elissa-play-label">تشغيل</span>
+                  </button>
+                  <input
+                    type="range"
+                    id="elissa-seek-slider"
+                    class="audio-seek-slider"
+                    min="0"
+                    max="309"
+                    step="0.5"
+                    value="0"
+                    aria-label="شريط تقدم أغنية حالة حب"
+                  />
+                  <span class="audio-time-readout tabular-nums" id="elissa-time-readout">00:00 / 05:09</span>
+                </div>
+
+                <audio id="elissa-audio" src="assets/halet-hob.mp3" preload="metadata" playsinline></audio>
+              </div>
+            </div>
+
+            <!-- Left Column: Elissa "حالة حب" Interactive Lyrics -->
+            <div class="elissa-lyrics-box">
+              <div>
+                <div class="lyric-header">
+                  <h3>كلمات «حالة حب» • إليسا</h3>
+                  <span class="lyric-credits">المسي أي مقطع لسماعه</span>
+                </div>
+
+                <div class="elissa-verses-list" id="elissa-lyrics-list">
+                  <div class="elissa-verse-item is-active-verse" data-seek="15">
+                    <span>عايشة حالة حب معاك واخداني.. وصعب إنها تتكرر تاني</span>
+                    <span class="lyric-time tabular-nums">00:15</span>
+                  </div>
+                  <div class="elissa-verse-item" data-seek="31">
+                    <span>وبعيشها لو إنت بعيد أو قدامي.. وأخيراً الأيام رضيوا عليّا</span>
+                    <span class="lyric-time tabular-nums">00:31</span>
+                  </div>
+                  <div class="elissa-verse-item" data-seek="64">
+                    <span>سيبني أسرح فيك شوية وأنسى أيام ضاعوا مني</span>
+                    <span class="lyric-time tabular-nums">01:04</span>
+                  </div>
+                  <div class="elissa-verse-item" data-seek="73">
+                    <span>نفسي عمري يعدي بيا وإنت بعينيك دول حاضني</span>
+                    <span class="lyric-time tabular-nums">01:13</span>
+                  </div>
+                  <div class="elissa-verse-item" data-seek="98">
+                    <span>وإنت هنا معايا بدعي من جوايا.. تجمعني الأيام بيك ربنا يقبل دعايا</span>
+                    <span class="lyric-time tabular-nums">01:38</span>
+                  </div>
+                  <div class="elissa-verse-item" data-seek="186">
+                    <span>كل يوم بينك وبيني مش هيبقى يوم وعدى.. بكرة يجي وتلاقيني نفس إحساس النهاردة</span>
+                    <span class="lyric-time tabular-nums">03:06</span>
+                  </div>
+                  <div class="elissa-verse-item" data-seek="203">
+                    <span>من هنا ورايح سنيني ناوية أعيشهالك بحالها.. وأنا صعب سنيني في يوم تتعاش غير لإنسان يستاهلها</span>
+                    <span class="lyric-time tabular-nums">03:23</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="seif-margin-note">
+                «من الساعة 2:55 يوم 21/11 وأنا بدعي من جوايا تجمعني الأيام بيكي يا مريم.. ربنا يقبل دعايا ويخليكي ليا العمر كله.» (سيف)
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scene 2: Umm Kulthum "سيرة الحب — إلّا عيونك إنتَ" -->
+    <section class="story-section" id="seret-el-hob">
+      <h2 class="section-heading">أسطوانة «سيرة الحب»: إلّا عيونك إنتَ</h2>
+      <p class="section-intro">
+        المقطع الذي تعشقه مريم لكوكب الشرق أم كلثوم. اضغطي على زر مقطعكِ المفضل أو المسي أي سطر للانتقال إليه فوراً.
+      </p>
+
+      <div class="gramophone-ensemble">
+        <div class="turntable-cabinet">
+          <div>
+            <div class="cabinet-brass-plate">
+              <span class="cabinet-title">أسطوانة أم كلثوم • سيرة الحب</span>
+              <span class="cabinet-year tabular-nums">33⅓ RPM • 1964</span>
+            </div>
+
+            <div class="platter-stage">
+              <div class="vinyl-disc" id="vinyl-disc">
+                <svg class="vinyl-grooves-svg" viewBox="0 0 276 276" fill="none" aria-hidden="true">
+                  <circle cx="138" cy="138" r="126" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+                  <circle cx="138" cy="138" r="112" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+                  <circle cx="138" cy="138" r="98" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+                  <circle cx="138" cy="138" r="84" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+                  <circle cx="138" cy="138" r="70" stroke="rgba(255,255,255,0.07)" stroke-width="1" />
+                </svg>
+                <img
+                  src="assets/vinyl-cover.jpg"
+                  alt="ملصق أسطوانة صوت القاهرة الأصلي لأغنية سيرة الحب لأم كلثوم"
+                  class="vinyl-label-img"
+                />
+                <div class="vinyl-spindle"></div>
+              </div>
+
+              <svg class="tonearm-assembly" id="tonearm-svg" viewBox="0 0 120 185" fill="none" aria-hidden="true">
+                <circle cx="28" cy="28" r="18" fill="#1e1830" stroke="#f472b6" stroke-width="3" />
+                <circle cx="28" cy="28" r="7" fill="#f6f3ff" />
+                <path d="M28 28 L34 128 L64 162" stroke="#c9c2e3" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+                <rect x="56" y="154" width="16" height="22" rx="3" transform="rotate(-38 56 154)" fill="#e11d48" stroke="#f6f3ff" stroke-width="2" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="turntable-controls">
+            <div class="cue-buttons-grid">
+              <button type="button" class="cue-btn is-active-cue" id="cue-ella-oyounak-btn" data-seek="137">
+                <strong>مقطع مريم: إلّا عيونك إنتَ</strong>
+                <span class="tabular-nums">ياما عيون شاغلوني • 02:17</span>
+              </button>
+              <button type="button" class="cue-btn" id="cue-yama-el-hob-btn" data-seek="115">
+                <strong>تمهيد المقطع</strong>
+                <span class="tabular-nums">ياما الحب نده على قلبي • 01:55</span>
+              </button>
+              <button type="button" class="cue-btn" data-seek="34">
+                <strong>بداية الكوبليه</strong>
+                <span class="tabular-nums">فات من عمري سنين • 00:34</span>
+              </button>
+              <button type="button" class="cue-btn" data-seek="0">
+                <strong>المقدمة الموسيقية</strong>
+                <span class="tabular-nums">عزف بليغ حمدي • 00:00</span>
+              </button>
+            </div>
+
+            <div class="audio-timeline-bar">
+              <button type="button" class="btn-primary-rose" id="main-turntable-play-btn" style="padding:0.55rem 1.15rem;font-size:1rem;">
+                <span id="turntable-play-label">تشغيل</span>
+              </button>
+              <input
+                type="range"
+                id="audio-seek-slider"
+                class="audio-seek-slider"
+                min="0"
+                max="180"
+                step="0.5"
+                value="137"
+                aria-label="شريط تقدم الأغنية"
+              />
+              <span class="audio-time-readout tabular-nums" id="audio-time-readout">02:17 / 03:00</span>
+            </div>
+
+            <div class="turntable-footer-row">
+              <label class="crackle-toggle-label">
+                <input type="checkbox" id="vinyl-crackle-checkbox" checked />
+                <span>مؤثر إبرة الفينيل الكلاسيكية</span>
+              </label>
+
+              <label class="custom-audio-upload">
+                <input type="file" id="custom-audio-input" accept="audio/*" hidden />
+                <span>أو اختاري ملفاً صوتياً خاصاً</span>
+              </label>
+            </div>
+          </div>
+
+          <audio id="seret-audio" src="assets/ella-oyounak-enta.mp3" preload="auto" playsinline></audio>
+        </div>
+
+        <div class="lyric-manuscript">
+          <div>
+            <div class="lyric-header">
+              <h3>كلمات المقطع • أم كلثوم</h3>
+              <span class="lyric-credits">المسي أي سطر للانتقال إليه</span>
+            </div>
+
+            <div class="lyrics-scroll-box" id="lyrics-list">
+              <div class="lyric-line" data-start="0" data-end="34">
+                <span>♪ مقدمة الكوبليه الموسيقية: كمان وناي بليغ حمدي</span>
+                <span class="lyric-time tabular-nums">00:00</span>
+              </div>
+              <div class="lyric-line" data-start="34" data-end="67">
+                <span>فات من عمري سنين وسنين.. شفت كتير وقليل عاشقين</span>
+                <span class="lyric-time tabular-nums">00:34</span>
+              </div>
+              <div class="lyric-line" data-start="67" data-end="100">
+                <span>اللي بيشكي حاله لحاله.. واللي بيبكي على موّاله</span>
+                <span class="lyric-time tabular-nums">01:07</span>
+              </div>
+              <div class="lyric-line" data-start="100" data-end="115">
+                <span>أهل الحب صحيح مساكين.. صحيح مساكين</span>
+                <span class="lyric-time tabular-nums">01:40</span>
+              </div>
+              <div class="lyric-line" data-start="115" data-end="130">
+                <span>ياما الحب نده على قلبي.. ما ردّش قلبي جواب</span>
+                <span class="lyric-time tabular-nums">01:55</span>
+              </div>
+              <div class="lyric-line" data-start="130" data-end="137">
+                <span>ياما الشوق حاول يحايلني.. وأقول له روح يا عذاب</span>
+                <span class="lyric-time tabular-nums">02:10</span>
+              </div>
+              <div class="lyric-line is-featured-verse" data-start="137" data-end="152">
+                <span>ياما عيون شاغلوني.. لكن ولا شغلوني</span>
+                <span class="lyric-time tabular-nums">02:17</span>
+              </div>
+              <div class="lyric-line is-featured-verse" data-start="152" data-end="164">
+                <span>«إلّا عيونك إنتَ.. دول بس اللي خدوني.. وبحبك أمروني»</span>
+                <span class="lyric-time tabular-nums">02:32</span>
+              </div>
+              <div class="lyric-line is-featured-verse" data-start="164" data-end="180">
+                <span>أمروني أحب.. لقيتني بحب.. وأدوب في الحب.. وصبح وليل على بابه</span>
+                <span class="lyric-time tabular-nums">02:44</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="seif-margin-note">
+            «حقيقي يا مريم.. كل مرة بسمع فيها أم كلثوم وهي بتقول "إلّا عيونك إنتَ دول بس اللي خدوني وبحبك أمروني"، بحس إنها كانت شايفة عيونك إنتِ وبتوصف اللي حصل لقلبي يوم ما عرفتك وحبيتك.» (سيف)
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scene 3: Modern Interactive Story Book ("كتاب حكايتنا") -->
+    <section class="story-section" id="our-book">
+      <h2 class="section-heading">كتاب حكايتنا: فصولٌ من سيف إلى مريم</h2>
+      <p class="section-intro">
+        لأنكِ تعشقين الكتب والكتابة، جمعتُ مشاعري نحوكِ في هذا الكتاب. اسحبي الصفحة يميناً أو يساراً بإصبعكِ أو اضغطي الأزرار لتقليب الفصول.
+      </p>
+
+      <div class="book-stage">
+        <div class="book-ribbon" aria-hidden="true"></div>
+
+        <div class="open-book-spread" id="book-spread">
+          <article class="book-page book-page-right">
+            <div>
+              <div class="page-header-row">
+                <span id="book-chapter-badge">الفصل الأول</span>
+                <span>كتاب سيف ومريم</span>
+              </div>
+              <h3 class="page-chapter-title" id="book-right-title">صدفةٌ أجمل من كل المواعيد</h3>
+              <p class="page-prose" id="book-right-body">
+                قبل أن أتعرف عليكِ يا مريم، كانت الأيام تمر عاديةً مثل صفحات كتابٍ بلا عنوان. وحين ظهرتِ، تغيّر لون السماء، وصار لكل تفصيلةٍ صغيرة معنىً مختلف، كأن عمري كله كان تمهيداً للحظة التي ألتقي فيها بكِ.
+              </p>
+            </div>
+
+            <div class="page-footer-row">
+              <span>بقلم: سيف</span>
+              <span class="tabular-nums" id="book-right-page-num">صفحة ١</span>
+            </div>
+          </article>
+
+          <article class="book-page book-page-left">
+            <div>
+              <div class="page-header-row">
+                <span>إهداء إلى مريم</span>
+                <span id="book-chapter-motif">الورد والغيوم</span>
+              </div>
+              <p class="page-prose" id="book-left-body">
+                حين اعترفنا لبعضنا بالحب يوم 21/11 الساعة 2:55، شعرتُ أن الدنيا كلها هدأت فجأة، ولم يبقَ فيها سوى صوت ضحكتكِ ودفء كلامكِ. أحببتكِ لا كعادةٍ عابرة، بل كحقيقةٍ وحيدة يطمئن لها قلبي كل يوم أكثر من اليوم الذي قبله.
+              </p>
+              <blockquote class="page-quote-box" id="book-left-quote">
+                «أنتِ القصيدة التي لم يكتبها شاعرٌ بعد، والكتاب الذي لا أملّ من قراءته طوال عمري.»
+              </blockquote>
+            </div>
+
+            <div class="page-footer-row">
+              <span>إلى حبيبتي مريم</span>
+              <span class="tabular-nums" id="book-left-page-num">صفحة ٢</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="book-controls-bar">
+          <div class="book-chapter-dots" id="book-chapter-tabs" role="tablist" aria-label="فصول الكتاب"></div>
+
+          <div class="book-flip-btns">
+            <button type="button" class="btn-secondary-brass" id="prev-chapter-btn" style="padding:0.55rem 1.05rem;font-size:0.95rem;">
+              <span>الفصل السابق</span>
+            </button>
+            <button type="button" class="btn-primary-rose" id="next-chapter-btn" style="padding:0.55rem 1.2rem;font-size:0.95rem;">
+              <span>اقلبي الصفحة</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scene 4: Coffee Lounge & Live Message Writer -->
+    <section class="story-section" id="cafe-table">
+      <h2 class="section-heading">ركن القهوة والكتابة: فنجان قهوتكِ ورسائل سيف</h2>
+      <p class="section-intro">
+        اختاري قهوتكِ المفضلة الآن، واقرئي رسائل سيف التي تُكتب أمامكِ حرفاً بحرف، أو اكتبي سطراً جديداً ليُحفظ في كتابنا.
+      </p>
+
+      <div class="cafe-desk-grid">
+        <div class="coffee-atelier">
+          <div>
+            <h3 class="coffee-title">فنجان قهوة مريم وسيف</h3>
+            <p style="color:var(--text-secondary);font-size:1.02rem;">
+              اختاري قهوتكِ المفضلة واقرئي رسالة سيف المصاحبة لها:
+            </p>
+
+            <div class="coffee-menu-chips" id="coffee-menu">
+              <button type="button" class="coffee-choice-btn is-brewed" data-coffee="turkish">
+                <strong>قهوة تركي بالحبهان</strong>
+                <span class="coffee-choice-sub">أصيلة ودافئة كالأغاني الكلاسيكية</span>
+              </button>
+              <button type="button" class="coffee-choice-btn" data-coffee="latte">
+                <strong>سبانيش لاتيه بالغيم</strong>
+                <span class="coffee-choice-sub">حلو وناعم كرغوة السحاب</span>
+              </button>
+              <button type="button" class="coffee-choice-btn" data-coffee="espresso">
+                <strong>إسبريسو كلاسيك</strong>
+                <span class="coffee-choice-sub">عميق ومركز كنظرة عينيكِ</span>
+              </button>
+              <button type="button" class="coffee-choice-btn" data-coffee="mocha">
+                <strong>موكا بالقرفة والورد</strong>
+                <span class="coffee-choice-sub">مزيج القهوة مع عطر المساء</span>
+              </button>
+            </div>
+
+            <div class="coffee-cup-display" aria-hidden="true">
+              <svg width="150" height="125" viewBox="0 0 150 125" fill="none">
+                <path class="steam-plume" d="M62 34 C56 24, 68 16, 62 6" stroke="#f472b6" stroke-width="2" stroke-linecap="round" opacity="0.65" />
+                <path class="steam-plume steam-plume-2" d="M78 30 C72 20, 84 12, 78 4" stroke="#f6f3ff" stroke-width="2" stroke-linecap="round" opacity="0.65" />
+                <path class="steam-plume" d="M92 35 C87 26, 97 18, 91 9" stroke="#c084fc" stroke-width="1.8" stroke-linecap="round" opacity="0.5" />
+
+                <ellipse cx="75" cy="108" rx="54" ry="9" fill="#18142c" stroke="#c084fc" stroke-width="2" />
+                <path d="M108 56 C126 56, 126 84, 106 86" stroke="#f6f3ff" stroke-width="5" stroke-linecap="round" />
+                <path d="M40 46 H110 L102 94 C100 102, 50 102, 48 94 Z" fill="#1e1936" stroke="#f472b6" stroke-width="2" />
+                <path d="M43 62 H107" stroke="#e11d48" stroke-width="3" />
+                <ellipse cx="75" cy="46" rx="35" ry="7" fill="#3b2216" stroke="#f472b6" stroke-width="1.8" id="coffee-liquid-ellipse" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="cafe-napkin-note">
+            <div class="napkin-blend-title" id="napkin-title">قهوة تركي بالحبهان، على نغم الحب</div>
+            <p class="napkin-message" id="napkin-text">
+              «يقولون إن القهوة تضبط المزاج، لكن الحقيقة يا مريم أن كلمةً واحدة منكِ في أول اليوم تفعل بقلبي ما لا تفعله كل مقاهي الدنيا.»
+            </p>
+          </div>
+        </div>
+
+        <div class="typewriter-desk">
+          <div>
+            <div class="cabinet-brass-plate">
+              <span class="cabinet-title">رسائل سيف الحية إلى مريم</span>
+              <span class="cabinet-year">مريم ♥ سيف</span>
+            </div>
+
+            <div class="typewriter-paper-sheet">
+              <div class="paper-date-stamp">
+                <span id="typewriter-letter-title">رسالة رقم ١: عن عينيكِ</span>
+                <span class="tabular-nums">21/11 • 2:55</span>
+              </div>
+              <div class="typewriter-output">
+                <span id="typewriter-text"></span><span class="typewriter-cursor" aria-hidden="true"></span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="typewriter-actions">
+              <button type="button" class="btn-primary-rose" id="next-typed-letter-btn" style="padding:0.65rem 1.25rem;font-size:1rem;">
+                <span>اعرضي رسالة أخرى من سيف</span>
+              </button>
+
+              <label class="crackle-toggle-label">
+                <input type="checkbox" id="typewriter-sound-checkbox" checked />
+                <span>صوت نقرات الكتابة</span>
+              </label>
+            </div>
+
+            <form class="custom-letter-box" id="custom-typewriter-form">
+              <input
+                type="text"
+                id="custom-typewriter-input"
+                class="custom-letter-input"
+                placeholder="اكتبي هنا سطراً أو أمنية ليتم حفظها في كتابنا..."
+                maxlength="240"
+              />
+              <button type="submit" class="btn-secondary-brass" style="padding:0.6rem 1.15rem;font-size:0.95rem;white-space:nowrap;">
+                <span>اكتبي واحفظي في كتابنا</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scene 5: Modern Rose Garden ("حديقة الورد البلدي") -->
+    <section class="story-section" id="rose-herbarium">
+      <div class="herbarium-top-bar">
+        <div>
+          <h2 class="section-heading">حديقة الورد البلدي: وردةٌ لكل تفصيلةٍ أحبها فيكِ</h2>
+          <p class="section-intro" style="margin-bottom:0;">
+            لأنكِ تعشقين الورد، جمعتُ لكِ باقةً لا تذبل. المسي أي وردةٍ لتتناثر بتلاتها وتخبركِ لماذا يحبكِ سيف بهذا القدر.
+          </p>
+        </div>
+        <button type="button" class="btn-primary-rose" id="bloom-all-roses-btn" style="padding:0.65rem 1.25rem;font-size:1rem;">
+          <span>انثري بتلات الورد</span>
+        </button>
+      </div>
+
+      <div class="roses-specimen-grid" id="roses-grid"></div>
+
+      <div class="random-rose-drawer">
+        <p class="drawn-note-text" id="random-rose-quote">
+          «أحبكِ يا مريم لأنكِ جمعتِ رقة الورد، وعمق الكتب، ودفء القهوة، واتساع السماء في روحٍ واحدة.»
+        </p>
+        <button type="button" class="btn-primary-rose" id="draw-random-rose-btn" style="padding:0.65rem 1.35rem;font-size:1rem;">
+          <span>اقطفي وردةً ورسالةً جديدة من قلب سيف</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Scene 6: The Living Sky & Clouds Observatory -->
+    <section class="hero-observatory story-section" id="sky-observatory">
+      <div class="sky-whisper-toast" id="sky-whisper-box" role="status" aria-live="polite">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f472b6" stroke-width="1.8" aria-hidden="true">
+          <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
+        </svg>
+        <span id="sky-whisper-text">المسي أي مكان في السماء أو الغيوم لتقرئي همسة جديدة من سيف إلى مريم</span>
+      </div>
+
+      <div class="hero-centerpiece" id="hero-sky-click-zone">
+        <h2 class="hero-title">سماء مريم وسيف.. غيومٌ ونجوم تحمل اسمينا</h2>
+        <p class="hero-lead">
+          منذ اللحظة التي التقينا فيها واعترفنا لبعضنا، صارت كل غيمةٍ في السماء تحمل اسمكِ، وكل كتابٍ يروي فصلاً من حنانكِ، وكل فنجان قهوةٍ يبدأ بذكركِ يا مريم.
+        </p>
+
+        <div class="hero-actions">
+          <button type="button" class="btn-primary-rose" id="hero-play-verse-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.8" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+            <span>اسمعي مقطعنا: «إلّا عيونك إنتَ»</span>
+          </button>
+
+          <button type="button" class="btn-secondary-brass" id="hero-petal-shower-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M12 3c3 3.5 4.5 7.5 0 12-4.5-4.5-3-8.5 0-12z" />
+              <path d="M12 15v6" />
+            </svg>
+            <span>انثري الورد البلدي في السماء</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="sky-observatory-dock">
+        <div class="sky-mood-group" role="group" aria-label="اختيار وقت ومزاج السماء والغيوم">
+          <span class="sky-mood-label">لون السماء والغيوم:</span>
+          <button type="button" class="mood-chip is-active" data-mood="sunset">غروب الورد والغيم</button>
+          <button type="button" class="mood-chip" data-mood="dawn">سماء الفجر الزرقاء</button>
+          <button type="button" class="mood-chip" data-mood="night">ليل النجوم الساحر</button>
+        </div>
+
+        <button type="button" class="sky-constellation-trigger" id="toggle-constellation-btn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <polygon points="12 2 15 9 22 9.5 17 14.5 18.5 21.5 12 17.8 5.5 21.5 7 14.5 2 9.5 9 9" />
+          </svg>
+          <span>ارسمي اسم «مريم ♥ سيف» بالنجوم</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Scene 7: The Eternal Love Vow -->
+    <section class="story-section" id="eternal-vow">
+      <div class="vow-scroll-card">
+        <h2 class="vow-heading">عهد الحب: سيف ومريم</h2>
+        <p class="vow-body-text">
+          يا مريم.. بعد أن اعترفنا لبعضنا يوم 21/11 الساعة 2:55، وبعد أن عشنا معاً أجمل حالة حب، هل تقبلين أن نكتب كل الفصول القادمة معاً؟ أن نشرب قهوتنا تحت كل سماء، وأن تبقى عيونكِ دائماً هي الوحيدة التي تأمر قلبي بالحب؟
+        </p>
+
+        <div class="vow-buttons-stage" id="vow-buttons-stage">
+          <button type="button" class="btn-primary-rose" id="accept-vow-btn" style="font-size:1.15rem;padding:0.9rem 2rem;">
+            <span>أوافق وبحبك يا سيف ♥</span>
+          </button>
+
+          <button type="button" class="btn-dodge-playful" id="playful-think-btn">
+            <span>هفكر شوية...</span>
+          </button>
+        </div>
+
+        <div class="vow-sealed-celebration" id="vow-celebration-box" role="status" aria-live="polite">
+          <h3>عهدُ حبٍ أبدي بين سيف ومريم ♥</h3>
+          <p style="font-size:1.18rem;color:var(--text-primary);max-width:56ch;margin:0 auto;">
+            «أوعدك يا مريم إني أفضل أحبك، وأحافظ على ضحكتك، وأكون لكِ السند والحبيب والصديق في كل فصل جاي من عمرنا.. بحبك أوي.»
+          </p>
+          <div class="vow-signatures">
+            <span>سيف ♥</span>
+            <span>مريم ♥</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="colophon-footer">
+      <p>صُنِعَ بكل الحب، خصيصاً لعيون <strong>مريم</strong> من حبيبها <strong>سيف</strong></p>
+    </footer>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js?v=20261122modern"></script>
+</body>
+</html>
