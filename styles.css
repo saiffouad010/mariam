@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
 :root {
-  /* Core Palette: 1964 Cairo Literary Café, Espresso, Parchment, Damascus Rose & Twilight Sky */
-  --sky-night: #120e16;
+  /* Core Palette: 1964 Cairo Literary Café, Espresso, Parchment, Damascus Rose & Cosmic Twilight */
+  --sky-night: #080610;
   --mahogany-deep: #1a110e;
   --espresso-wood: #251813;
   --espresso-surface: #312019;
@@ -172,6 +172,246 @@ a {
   pointer-events: none;
   width: 100%;
   height: 100%;
+}
+
+/* ==========================================================================
+   Scene 0: Interactive 3D Particle Morphing Universe (hi.zico.info Inspired)
+   ========================================================================== */
+.particle-universe-section {
+  margin-top: 1.35rem;
+  scroll-margin-top: 4.5rem;
+}
+
+.particle-stage-card {
+  position: relative;
+  width: 100%;
+  height: min(78vh, 660px);
+  min-height: 490px;
+  padding: 1rem;
+  background: #06040d;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.72);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.particle-stage-card.is-fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  height: 100vh;
+  height: 100dvh;
+  border-radius: 0;
+}
+
+.gl-canvas-mount {
+  position: absolute;
+  inset: 0;
+  cursor: grab;
+  touch-action: none;
+}
+
+.gl-canvas-mount:active {
+  cursor: grabbing;
+}
+
+.gl-canvas-mount canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+.gl-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 50% 44%,
+    transparent 36%,
+    rgba(6, 4, 13, 0.9) 100%
+  );
+}
+
+.gl-top-bar {
+  position: absolute;
+  top: 14px;
+  inset-inline: 14px;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: env(safe-area-inset-top) 0.25rem 0;
+  pointer-events: none;
+}
+
+.gl-top-right,
+.gl-top-left {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  pointer-events: auto;
+}
+
+.gl-icon-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(24, 16, 36, 0.78);
+  border: 1px solid rgba(229, 190, 122, 0.45);
+  color: var(--parchment-light);
+  font-size: 1.15rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: background-color 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.gl-icon-btn[aria-pressed="true"] {
+  background: var(--damascus-rose);
+  border-color: var(--brass-bright);
+  color: var(--parchment-light);
+}
+
+.gl-pill-btn {
+  padding: 0.45rem 0.95rem;
+  min-height: 40px;
+  border-radius: 999px;
+  background: rgba(24, 16, 36, 0.78);
+  border: 1px solid rgba(229, 190, 122, 0.35);
+  color: var(--parchment-light);
+  font-size: 0.9rem;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.gl-pill-btn[aria-pressed="true"] {
+  border-color: var(--brass-bright);
+  color: var(--brass-bright);
+}
+
+.gl-bottom-hud {
+  position: absolute;
+  inset-inline: 14px;
+  bottom: 14px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 0.5rem env(safe-area-inset-bottom);
+  pointer-events: none;
+}
+
+.gl-drag-hint {
+  font-size: 0.92rem;
+  color: var(--text-on-dark-secondary);
+  text-align: center;
+  background: rgba(12, 9, 22, 0.72);
+  padding: 0.25rem 0.85rem;
+  border-radius: 999px;
+  transition: opacity 0.6s;
+}
+
+.gl-drag-hint.is-faded {
+  opacity: 0.35;
+}
+
+.gl-morph-navigator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+  width: 100%;
+  max-width: 580px;
+}
+
+.gl-nav-circle {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(24, 16, 36, 0.78);
+  border: 1px solid rgba(229, 190, 122, 0.42);
+  color: var(--parchment-light);
+  font-size: 1.55rem;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  pointer-events: auto;
+  backdrop-filter: blur(10px);
+  transition: background-color 0.2s, transform 0.15s;
+}
+
+.gl-nav-circle:active {
+  transform: scale(0.93);
+}
+
+.gl-title-block {
+  text-align: center;
+  min-width: 200px;
+  flex: 1;
+}
+
+.gl-shape-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 5vw, 2.55rem);
+  color: var(--parchment-light);
+  line-height: 1.25;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.85);
+}
+
+.gl-shape-name.is-animating {
+  animation: shapeTitleIn 0.7s var(--ease-out-expo);
+}
+
+@keyframes shapeTitleIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gl-shape-poem {
+  font-size: clamp(0.98rem, 2.5vw, 1.14rem);
+  color: var(--brass-bright);
+  margin-top: 0.25rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+.gl-dots-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+  pointer-events: auto;
+}
+
+.gl-dot-btn {
+  background: rgba(24, 16, 36, 0.78);
+  border: 1px solid rgba(229, 190, 122, 0.3);
+  color: var(--text-on-dark-secondary);
+  padding: 0.3rem 0.75rem;
+  min-height: 34px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.gl-dot-btn.is-active,
+.gl-dot-btn:hover {
+  background: var(--damascus-rose);
+  border-color: var(--brass-bright);
+  color: var(--parchment-light);
+  font-weight: 700;
 }
 
 /* ==========================================================================
@@ -408,13 +648,13 @@ a {
 .nav-chapters {
   display: flex;
   align-items: center;
-  gap: 1.1rem;
+  gap: 1rem;
   flex-wrap: wrap;
   list-style: none;
 }
 
 .nav-chapters a {
-  font-size: 1rem;
+  font-size: 0.98rem;
   color: var(--text-on-dark-secondary);
   text-decoration: none;
   padding: 0.3rem 0.55rem;
@@ -461,7 +701,6 @@ a {
   color: var(--parchment-light);
 }
 
-/* Mobile Thumb Dock (Hidden on Desktop, Fixed Bottom on Phone/Tablet) */
 .mobile-thumb-dock {
   display: none;
 }
@@ -479,12 +718,10 @@ a {
 
 .hero-observatory {
   position: relative;
-  min-height: 80vh;
-  min-height: 80dvh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 2.5rem 0 2rem;
+  padding: 2.75rem 0 2rem;
 }
 
 .sky-whisper-toast {
@@ -506,13 +743,13 @@ a {
 .hero-centerpiece {
   text-align: center;
   max-width: 780px;
-  margin: 1.5rem auto;
-  padding: 2rem 1.25rem;
+  margin: 1.35rem auto;
+  padding: 1.5rem 1.25rem;
 }
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(2.15rem, 6vw, 4.4rem);
+  font-size: clamp(2.15rem, 5.5vw, 4rem);
   color: var(--parchment-light);
   line-height: 1.32;
   margin-bottom: 1.1rem;
@@ -521,7 +758,7 @@ a {
 }
 
 .hero-lead {
-  font-size: clamp(1.14rem, 2.5vw, 1.46rem);
+  font-size: clamp(1.14rem, 2.5vw, 1.44rem);
   color: var(--text-on-dark);
   max-width: 60ch;
   margin: 0 auto 1.75rem;
@@ -1663,6 +1900,11 @@ a {
 }
 
 @media (max-width: 640px) {
+  .particle-stage-card {
+    height: min(74vh, 560px);
+    min-height: 450px;
+  }
+
   .roses-specimen-grid,
   .cue-buttons-grid,
   .coffee-menu-chips {
@@ -1670,7 +1912,6 @@ a {
   }
 
   .hero-observatory {
-    min-height: auto;
     padding: 1.5rem 0 1.25rem;
   }
 
