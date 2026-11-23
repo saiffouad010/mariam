@@ -1,0 +1,676 @@
+@charset "UTF-8";
+
+:root {
+  --bg-deep: #05040d;
+  --bg-surface: #0e0b1d;
+  --bg-elevated: #17122e;
+
+  --text-primary: #f6f3ff;
+  --text-secondary: #cdc5e6;
+  --text-muted: #9b92bd;
+
+  --accent-rose: #be123c;
+  --accent-rose-hover: #9f1239;
+  --accent-pink: #f472b6;
+  --accent-violet: #c084fc;
+  --accent-gold: #fbbf24;
+  --accent-mint: #34d399;
+
+  --border-subtle: rgba(255, 255, 255, 0.13);
+  --border-rose: rgba(244, 114, 182, 0.45);
+  --border-violet: rgba(192, 132, 252, 0.42);
+
+  --font-sans: 'Tajawal', 'Cairo', system-ui, -apple-system, sans-serif;
+  --font-poetic: 'Amiri', Georgia, serif;
+  --font-mono: 'Courier Prime', monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background-color: var(--accent-rose);
+  color: var(--text-primary);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-violet) var(--bg-deep);
+}
+
+body {
+  background: radial-gradient(circle at 50% 0%, #1d1130 0%, #090616 48%, #05040d 100%);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.75;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+button,
+a,
+input {
+  font-family: inherit;
+  color: inherit;
+  touch-action: manipulation;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-violet);
+  outline-offset: 3px;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Celebration Canvas (Petals + Sparkles) */
+#celebration-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 40;
+  pointer-events: none;
+}
+
+/* Sticky Top Bar */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(8, 6, 18, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: max(0.6rem, env(safe-area-inset-top)) 1rem 0.6rem;
+}
+
+.top-nav-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 800;
+  font-size: 1.18rem;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.nav-brand svg {
+  color: var(--accent-pink);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pill-btn {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  padding: 0.42rem 0.9rem;
+  min-height: 40px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.pill-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: var(--border-violet);
+}
+
+.pill-btn.is-active {
+  background: var(--accent-rose);
+  border-color: var(--accent-pink);
+}
+
+/* Main Shell */
+.surprise-shell {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem max(4rem, env(safe-area-inset-bottom));
+  position: relative;
+  z-index: 2;
+}
+
+.section-block {
+  margin-top: 2.5rem;
+}
+
+.section-title {
+  font-weight: 800;
+  font-size: clamp(1.55rem, 4vw, 2.2rem);
+  color: var(--text-primary);
+  margin-bottom: 0.45rem;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+.section-desc {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  max-width: 62ch;
+  margin-bottom: 1.35rem;
+  text-wrap: pretty;
+}
+
+/* Buttons */
+.btn-rose {
+  background: var(--accent-rose);
+  border: 1px solid var(--accent-pink);
+  color: var(--text-primary);
+  padding: 0.85rem 1.7rem;
+  min-height: 48px;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  transition: background-color 0.2s, transform 0.2s var(--ease-out-expo);
+}
+
+@media (hover: hover) {
+  .btn-rose:hover {
+    background: var(--accent-rose-hover);
+    transform: translateY(-2px);
+  }
+}
+
+.btn-rose:active {
+  transform: scale(0.97);
+}
+
+.btn-outline {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  padding: 0.8rem 1.4rem;
+  min-height: 46px;
+  border-radius: 12px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--border-violet);
+}
+
+/* ==========================================================================
+   Stage 1: Interactive Virtual Cast Unwrapping Hero
+   ========================================================================== */
+.cast-hero-panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-rose);
+  border-radius: 16px;
+  padding: 2.25rem 1.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-main-heading {
+  font-weight: 800;
+  font-size: clamp(1.9rem, 5.5vw, 3rem);
+  line-height: 1.3;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  text-wrap: balance;
+}
+
+.hero-subcopy {
+  font-size: clamp(1.04rem, 2.5vw, 1.2rem);
+  color: var(--text-secondary);
+  max-width: 56ch;
+  margin: 0 auto 1.5rem;
+  text-wrap: pretty;
+}
+
+.cast-visual-stage {
+  position: relative;
+  width: min(320px, 84vw);
+  margin: 0.5rem auto 1.35rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cast-svg {
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s var(--ease-out-expo), opacity 0.5s;
+}
+
+.cast-band-1,
+.cast-band-2,
+.cast-band-3 {
+  transition: transform 0.6s var(--ease-out-expo), opacity 0.5s;
+  transform-origin: center;
+}
+
+.cast-svg.step-1 .cast-band-1 {
+  transform: translateX(48px) rotate(12deg);
+  opacity: 0;
+}
+
+.cast-svg.step-2 .cast-band-1 {
+  transform: translateX(48px) rotate(12deg);
+  opacity: 0;
+}
+
+.cast-svg.step-2 .cast-band-2 {
+  transform: translateX(-48px) rotate(-12deg);
+  opacity: 0;
+}
+
+.cast-svg.is-freed {
+  display: none;
+}
+
+.freed-emblem {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 0;
+}
+
+.freed-emblem.is-visible {
+  display: flex;
+  animation: popReveal 0.65s var(--ease-out-expo) forwards;
+}
+
+@keyframes popReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.unwrap-progress-track {
+  width: min(320px, 100%);
+  height: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 0 auto 1rem;
+}
+
+.unwrap-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-rose), var(--accent-pink), var(--accent-violet));
+  border-radius: 999px;
+  transition: width 0.45s var(--ease-out-expo);
+}
+
+.unwrap-status-msg {
+  font-size: 1.06rem;
+  font-weight: 700;
+  color: var(--accent-pink);
+  min-height: 1.8em;
+  margin-bottom: 1rem;
+}
+
+.unwrap-controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Dual Song Switcher Bar */
+.music-bar-card {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+/* ==========================================================================
+   Stage 2: Heartfelt Recovery Letter & Bravery Certificate
+   ========================================================================== */
+.two-col-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.glass-panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 1.85rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.letter-prose {
+  font-size: 1.12rem;
+  color: var(--text-primary);
+  line-height: 1.95;
+  text-wrap: pretty;
+}
+
+.letter-quote {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border-rose);
+  font-family: var(--font-poetic);
+  font-size: 1.28rem;
+  color: var(--accent-pink);
+}
+
+/* Bravery Certificate */
+.certificate-panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-violet);
+  border-radius: 16px;
+  padding: 1.85rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cert-wreath {
+  margin: 0 auto 0.75rem;
+  color: var(--accent-gold);
+}
+
+.cert-heading {
+  font-weight: 800;
+  font-size: 1.45rem;
+  color: var(--accent-pink);
+  margin-bottom: 0.5rem;
+}
+
+.cert-recipient {
+  font-weight: 800;
+  font-size: 1.85rem;
+  color: var(--text-primary);
+  margin: 0.45rem 0;
+}
+
+.cert-details-list {
+  list-style: none;
+  text-align: right;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+}
+
+.cert-details-list strong {
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   Stage 3: VIP Boarding Pass Ticket for First Walk & Coffee Date
+   ========================================================================== */
+.vip-ticket {
+  background: linear-gradient(140deg, #16102c 0%, #0d0a1a 60%, #1d0d1d 100%);
+  border: 1px solid var(--border-rose);
+  border-radius: 16px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.5fr 0.85fr;
+  position: relative;
+}
+
+.ticket-main-side {
+  padding: 2rem 1.75rem;
+  border-left: 2px dashed rgba(244, 114, 182, 0.35);
+}
+
+.ticket-stub-side {
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.9rem;
+  background: rgba(190, 18, 60, 0.1);
+}
+
+.ticket-heading {
+  font-weight: 800;
+  font-size: clamp(1.45rem, 3.5vw, 1.95rem);
+  color: var(--text-primary);
+  margin-bottom: 0.65rem;
+}
+
+.ticket-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+  margin-top: 1.15rem;
+}
+
+.ticket-field-label {
+  display: block;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+}
+
+.ticket-field-val {
+  font-weight: 700;
+  font-size: 1.04rem;
+  color: var(--text-primary);
+}
+
+.ticket-stamp-badge {
+  display: none;
+  padding: 0.5rem 1.1rem;
+  border: 2px solid var(--accent-mint);
+  border-radius: 10px;
+  color: var(--accent-mint);
+  font-weight: 800;
+  font-size: 1rem;
+  transform: rotate(-4deg);
+}
+
+.ticket-stamp-badge.is-stamped {
+  display: inline-block;
+  animation: popReveal 0.45s var(--ease-out-expo) forwards;
+}
+
+/* ==========================================================================
+   Stage 4: Post-Cast Wishlist Checklist
+   ========================================================================== */
+.wishlist-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.9rem;
+}
+
+.wish-item-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.15rem 1.2rem;
+  min-height: 68px;
+  text-align: right;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  transition: border-color 0.2s, background-color 0.2s, transform 0.2s;
+}
+
+.wish-item-btn:hover {
+  border-color: var(--border-violet);
+}
+
+.wish-item-btn.is-checked {
+  background: rgba(190, 18, 60, 0.2);
+  border-color: var(--accent-pink);
+}
+
+.wish-check-circle {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 2px solid var(--accent-pink);
+  display: grid;
+  place-items: center;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.wish-item-btn.is-checked .wish-check-circle {
+  background: var(--accent-rose);
+  border-color: var(--accent-pink);
+}
+
+.wish-text-title {
+  display: block;
+  font-weight: 700;
+  font-size: 1.04rem;
+  color: var(--text-primary);
+}
+
+.wish-text-sub {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.wish-reaction-bar {
+  margin-top: 1.15rem;
+  padding: 1.1rem 1.3rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-violet);
+  border-radius: 12px;
+  color: var(--accent-pink);
+  font-weight: 700;
+  font-size: 1.06rem;
+  text-align: center;
+}
+
+/* Footer CTA back to Main 3D Universe */
+.footer-portal-cta {
+  margin-top: 3rem;
+  text-align: center;
+  padding: 2rem 1.25rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.footer-portal-cta p {
+  color: var(--text-secondary);
+  margin-bottom: 1.15rem;
+  font-size: 1.06rem;
+}
+
+/* ==========================================================================
+   Mobile Responsive
+   ========================================================================== */
+@media (max-width: 768px) {
+  .two-col-grid,
+  .vip-ticket,
+  .wishlist-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ticket-main-side {
+    border-left: none;
+    border-bottom: 2px dashed rgba(244, 114, 182, 0.35);
+    padding: 1.5rem 1.25rem;
+  }
+
+  .ticket-stub-side {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .cast-hero-panel,
+  .glass-panel,
+  .certificate-panel {
+    padding: 1.5rem 1.15rem;
+  }
+
+  .unwrap-controls-row {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .unwrap-controls-row button {
+    width: 100%;
+  }
+
+  .ticket-meta-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.15s !important;
+    scroll-behavior: auto !important;
+  }
+}
